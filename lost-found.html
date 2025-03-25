@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCare - Lost & Found Pets</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Happy Tails</h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="my-pet.html">My Pet</a></li>
+                    <li><a href="diet-planner.html">Diet Planner</a></li>
+                    <li><a href="symptoms-checker.html">Symptoms Checker</a></li>
+                    <li><a href="lost-found.html" class="active">Lost & Found</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Lost & Found Pets</h1>
+                <p>Help reunite pets with their owners</p>
+            </div>
+        </section>
+
+        <section class="lost-found-section">
+            <div class="container">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="lost-pets">Lost Pets</button>
+                    <button class="tab-btn" data-tab="found-pets">Found Pets</button>
+                    <button class="tab-btn" data-tab="report-pet">Report a Pet</button>
+                </div>
+                
+                <div id="lost-pets" class="tab-content active">
+                    <div class="section-header">
+                        <h2>Lost Pets in Your Area</h2>
+                        <div class="filter-controls">
+                            <label for="lostPetFilter">Filter by:</label>
+                            <select id="lostPetFilter">
+                                <option value="all">All Pets</option>
+                                <option value="dog">Dogs</option>
+                                <option value="cat">Cats</option>
+                                <option value="other">Other Pets</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div id="lostPetsList" class="pets-grid">
+                        <!-- Will be populated with JavaScript -->
+                        <div class="empty-state">
+                            <p>No lost pets reported in your area.</p>
+                            <button id="reportLostPetBtn" class="btn btn-primary">Report a Lost Pet</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="found-pets" class="tab-content">
+                    <div class="section-header">
+                        <h2>Found Pets in Your Area</h2>
+                        <div class="filter-controls">
+                            <label for="foundPetFilter">Filter by:</label>
+                            <select id="foundPetFilter">
+                                <option value="all">All Pets</option>
+                                <option value="dog">Dogs</option>
+                                <option value="cat">Cats</option>
+                                <option value="other">Other Pets</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div id="foundPetsList" class="pets-grid">
+                        <!-- Will be populated with JavaScript -->
+                        <div class="empty-state">
+                            <p>No found pets reported in your area.</p>
+                            <button id="reportFoundPetBtn" class="btn btn-primary">Report a Found Pet</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="report-pet" class="tab-content">
+                    <div class="report-options">
+                        <div class="report-option" id="reportLostOption">
+                            <h3>Report a Lost Pet</h3>
+                            <p>Submit details about your missing pet to help others find it</p>
+                            <button class="btn btn-primary report-btn">Report Lost Pet</button>
+                        </div>
+                        
+                        <div class="report-option" id="reportFoundOption">
+                            <h3>Report a Found Pet</h3>
+                            <p>Submit details about a pet you've found to help reunite it with its owner</p>
+                            <button class="btn btn-primary report-btn">Report Found Pet</button>
+                        </div>
+                    </div>
+                    
+                    <div id="lostPetForm" class="report-form" style="display: none;">
+                        <h3>Report a Lost Pet</h3>
+                        <form id="reportLostForm">
+                            <div class="form-group">
+                                <label for="lostPetName">Pet's Name</label>
+                                <input type="text" id="lostPetName" name="lostPetName" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="lostPetType">Pet Type</label>
+                                    <select id="lostPetType" name="lostPetType" required>
+                                        <option value="">Select type</option>
+                                        <option value="dog">Dog</option>
+                                        <option value="cat">Cat</option>
+                                        <option value="bird">Bird</option>
+                                        <option value="rabbit">Rabbit</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="lostPetBreed">Breed</label>
+                                    <input type="text" id="lostPetBreed" name="lostPetBreed" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="lostPetGender">Gender</label>
+                                    <select id="lostPetGender" name="lostPetGender" required>
+                                        <option value="">Select gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="unknown">Unknown</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="lostPetAge">Age (approx.)</label>
+                                    <input type="text" id="lostPetAge" name="lostPetAge" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lostPetDescription">Description</label>
+                                <textarea id="lostPetDescription" name="lostPetDescription" rows="3" placeholder="Describe your pet's appearance, color, distinctive features, etc." required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lostPetImage">Upload Image</label>
+                                <input type="file" id="lostPetImage" name="lostPetImage" accept="image/*">
+                                <p class="form-hint">Adding a clear photo will help others identify your pet</p>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lostLocation">Last Seen Location</label>
+                                <input type="text" id="lostLocation" name="lostLocation" placeholder="Street address, neighborhood, or landmark" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lostDate">Date Last Seen</label>
+                                <input type="date" id="lostDate" name="lostDate" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="ownerContact">Contact Information</label>
+                                <input type="tel" id="ownerContact" name="ownerContact" placeholder="Phone number" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="ownerEmail">Email</label>
+                                <input type="email" id="ownerEmail" name="ownerEmail" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="additionalInfo">Additional Information</label>
+                                <textarea id="additionalInfo" name="additionalInfo" rows="3" placeholder="Any other details that might help find your pet"></textarea>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Submit Report</button>
+                                <button type="button" class="btn btn-secondary cancel-form">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div id="foundPetForm" class="report-form" style="display: none;">
+                        <h3>Report a Found Pet</h3>
+                        <form id="reportFoundForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="foundPetType">Pet Type</label>
+                                    <select id="foundPetType" name="foundPetType" required>
+                                        <option value="">Select type</option>
+                                        <option value="dog">Dog</option>
+                                        <option value="cat">Cat</option>
+                                        <option value="bird">Bird</option>
+                                        <option value="rabbit">Rabbit</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="foundPetBreed">Breed (if known)</label>
+                                    <input type="text" id="foundPetBreed" name="foundPetBreed">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="foundPetGender">Gender (if known)</label>
+                                    <select id="foundPetGender" name="foundPetGender">
+                                        <option value="">Select gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="unknown">Unknown</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="foundPetAge">Approximate Age</label>
+                                    <select id="foundPetAge" name="foundPetAge">
+                                        <option value="">Select age</option>
+                                        <option value="puppy_kitten">Puppy/Kitten</option>
+                                        <option value="young">Young</option>
+                                        <option value="adult">Adult</option>
+                                        <option value="senior">Senior</option>
+                                        <option value="unknown">Unknown</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="foundPetDescription">Description</label>
+                                <textarea id="foundPetDescription" name="foundPetDescription" rows="3" placeholder="Describe the pet's appearance, color, distinctive features, etc." required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="foundPetImage">Upload Image</label>
+                                <input type="file" id="foundPetImage" name="foundPetImage" accept="image/*">
+                                <p class="form-hint">Adding a clear photo will help the owner identify their pet</p>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="foundLocation">Location Found</label>
+                                <input type="text" id="foundLocation" name="foundLocation" placeholder="Street address, neighborhood, or landmark" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="foundDate">Date Found</label>
+                                <input type="date" id="foundDate" name="foundDate" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="finderContact">Your Contact Information</label>
+                                <input type="tel" id="finderContact" name="finderContact" placeholder="Phone number" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="finderEmail">Your Email</label>
+                                <input type="email" id="finderEmail" name="finderEmail" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="currentStatus">Current Status of Pet</label>
+                                <select id="currentStatus" name="currentStatus" required>
+                                    <option value="">Select status</option>
+                                    <option value="with_me">With me</option>
+                                    <option value="shelter">Taken to a shelter</option>
+                                    <option value="vet">Taken to a vet</option>
+                                    <option value="spotted">Spotted but not captured</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="additionalInfoFound">Additional Information</label>
+                                <textarea id="additionalInfoFound" name="additionalInfoFound" rows="3" placeholder="Any other details that might help reunite the pet with its owner"></textarea>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Submit Report</button>
+                                <button type="button" class="btn btn-secondary cancel-form">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Happy Tails</h2>
+                    <p>Caring for your pets, one record at a time.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="register-pet.html">Register Pet</a></li>
+                        <li><a href="my-pet.html">My Pet</a></li>
+                        <li><a href="medical-records.html">Medical Records</a></li>
+                        <li><a href="diet-planner.html">Diet Planner</a></li>
+                        <li><a href="symptoms-checker.html">Symptoms Checker</a></li>
+                        <li><a href="lost-found.html">Lost & Found</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@HappyTails.com</p>
+                    <p>Phone: 9878786546</p>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="lost-found.js"></script>
+</body>
+</html>

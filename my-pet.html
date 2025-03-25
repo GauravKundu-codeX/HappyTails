@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCare - My Pet</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Happy Tails</h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="register-pet.html">Register Pet</a></li>
+                    <li><a href="my-pet.html" class="active">My Pet</a></li>
+                    <li><a href="medical-records.html">Medical Records</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>My Pet</h1>
+                <p>View and manage your pet's information</p>
+            </div>
+        </section>
+
+        <section class="pet-profile">
+            <div class="container">
+                <div id="noPetMessage" class="no-pet-message">
+                    <p>You haven't registered any pets yet.</p>
+                    <a href="register-pet.html" class="btn btn-primary">Register a Pet</a>
+                </div>
+                
+                <div id="petProfile" class="pet-profile-container" style="display: none;">
+                    <div class="pet-header">
+                        <div class="pet-avatar">
+                            <div class="pet-avatar-placeholder">
+                                <span id="petInitial"></span>
+                            </div>
+                        </div>
+                        <div class="pet-info">
+                            <h2 id="profilePetName">Pet Name</h2>
+                            <p id="profilePetBreed">Breed</p>
+                        </div>
+                        <div class="pet-actions">
+                            <button id="editPetBtn" class="btn btn-secondary">Edit Pet</button>
+                        </div>
+                    </div>
+                    
+                    <div class="pet-details">
+                        <div class="detail-card">
+                            <h3>Basic Information</h3>
+                            <div class="detail-row">
+                                <span class="detail-label">Type:</span>
+                                <span id="profilePetType" class="detail-value">Dog</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Age:</span>
+                                <span id="profilePetAge" class="detail-value">3</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Gender:</span>
+                                <span id="profilePetGender" class="detail-value">Male</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Color:</span>
+                                <span id="profilePetColor" class="detail-value">Brown</span>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-card">
+                            <h3>Physical Attributes</h3>
+                            <div class="detail-row">
+                                <span class="detail-label">Weight:</span>
+                                <span id="profilePetWeight" class="detail-value">10 kg</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Height:</span>
+                                <span id="profilePetHeight" class="detail-value">40 cm</span>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-card full-width">
+                            <h3>Additional Notes</h3>
+                            <p id="profilePetNotes" class="notes">No additional notes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="pet-actions-footer">
+                        <a href="medical-records.html" class="btn btn-primary">View Medical Records</a>
+                        <button id="deletePetBtn" class="btn btn-danger">Delete Pet Data</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Happy Tails</h2>
+                    <p>Caring for your pets, one record at a time.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="register-pet.html">Register Pet</a></li>
+                        <li><a href="my-pet.html">My Pet</a></li>
+                        <li><a href="medical-records.html">Medical Records</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@Happy Tails.com</p>
+                    <p>Phone: 9878786546</p>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

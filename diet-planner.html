@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCare - Diet Planner</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Happy Tails</h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <!-- <li><a href="register-pet.html">Register Pet</a></li> -->
+                    <li><a href="my-pet.html">My Pet</a></li>
+                    <!-- <li><a href="medical-records.html">Medical Records</a></li> -->
+                    <li><a href="diet-planner.html" class="active">Diet Planner</a></li>
+                    <li><a href="symptoms-checker.html">Symptoms Checker</a></li>
+                    <li><a href="lost-found.html">Lost & Found</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Pet Diet Planner</h1>
+                <p>Get a personalized diet plan for your pet</p>
+            </div>
+        </section>
+
+        <section class="diet-planner">
+            <div class="container">
+                <div class="diet-content">
+                    <div class="diet-form-container">
+                        <h2>Create a Diet Plan</h2>
+                        <p>Fill in your pet's details to generate a personalized diet plan</p>
+                        
+                        <form id="dietPlannerForm" class="diet-form">
+                            <div class="form-group">
+                                <label for="petSelector">Select Your Pet</label>
+                                <select id="petSelector" name="petSelector">
+                                    <option value="">Select a pet</option>
+                                    <!-- Will be populated with JavaScript -->
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="petType">Pet Type</label>
+                                <select id="petType" name="petType" required>
+                                    <option value="">Select pet type</option>
+                                    <option value="dog">Dog</option>
+                                    <option value="cat">Cat</option>
+                                    <option value="bird">Bird</option>
+                                    <option value="rabbit">Rabbit</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="petAge">Age (years)</label>
+                                    <input type="number" id="petAge" name="petAge" min="0" step="0.1" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="petWeight">Weight (kg)</label>
+                                    <input type="number" id="petWeight" name="petWeight" min="0" step="0.1" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="petBreed">Breed</label>
+                                <input type="text" id="petBreed" name="petBreed" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="activityLevel">Activity Level</label>
+                                <select id="activityLevel" name="activityLevel" required>
+                                    <option value="">Select activity level</option>
+                                    <option value="low">Low (Mostly inactive)</option>
+                                    <option value="moderate">Moderate (Regular walks)</option>
+                                    <option value="high">High (Very active)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="healthIssues">Health Issues (Optional)</label>
+                                <textarea id="healthIssues" name="healthIssues" rows="3" placeholder="Enter any health issues or dietary restrictions"></textarea>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Generate Diet Plan</button>
+                                <button type="reset" class="btn btn-secondary">Reset Form</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div id="dietPlanResults" class="diet-results" style="display: none;">
+                        <div class="results-header">
+                            <h2>Personalized Diet Plan</h2>
+                            <p>Based on your pet's profile</p>
+                            <button id="printDietPlan" class="btn btn-secondary">Print Plan</button>
+                        </div>
+                        
+                        <div class="pet-summary">
+                            <h3>Pet Profile</h3>
+                            <div class="summary-details">
+                                <div class="summary-item">
+                                    <span class="summary-label">Name:</span>
+                                    <span id="summaryName" class="summary-value">Buddy</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="summary-label">Type:</span>
+                                    <span id="summaryType" class="summary-value">Dog</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="summary-label">Breed:</span>
+                                    <span id="summaryBreed" class="summary-value">Golden Retriever</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="summary-label">Age:</span>
+                                    <span id="summaryAge" class="summary-value">3 years</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="summary-label">Weight:</span>
+                                    <span id="summaryWeight" class="summary-value">25 kg</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="summary-label">Activity Level:</span>
+                                    <span id="summaryActivity" class="summary-value">Moderate</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="diet-recommendations">
+                            <h3>Daily Caloric Needs</h3>
+                            <p id="calorieNeeds" class="calorie-needs">1,200 - 1,400 calories per day</p>
+                            
+                            <h3>Recommended Diet</h3>
+                            <div id="dietRecommendations" class="recommendations-list">
+                                <!-- Will be populated with JavaScript -->
+                            </div>
+                            
+                            <h3>Feeding Schedule</h3>
+                            <div id="feedingSchedule" class="feeding-schedule">
+                                <!-- Will be populated with JavaScript -->
+                            </div>
+                            
+                            <h3>Nutrition Facts</h3>
+                            <div class="nutrition-facts">
+                                <div class="nutrition-chart">
+                                    <div class="chart-item">
+                                        <div class="chart-label">Protein</div>
+                                        <div class="chart-bar">
+                                            <div id="proteinBar" class="bar-fill" style="width: 40%;"></div>
+                                        </div>
+                                        <div id="proteinPercent" class="chart-percent">40%</div>
+                                    </div>
+                                    <div class="chart-item">
+                                        <div class="chart-label">Fats</div>
+                                        <div class="chart-bar">
+                                            <div id="fatsBar" class="bar-fill" style="width: 30%;"></div>
+                                        </div>
+                                        <div id="fatsPercent" class="chart-percent">30%</div>
+                                    </div>
+                                    <div class="chart-item">
+                                        <div class="chart-label">Carbs</div>
+                                        <div class="chart-bar">
+                                            <div id="carbsBar" class="bar-fill" style="width: 25%;"></div>
+                                        </div>
+                                        <div id="carbsPercent" class="chart-percent">25%</div>
+                                    </div>
+                                    <div class="chart-item">
+                                        <div class="chart-label">Fiber</div>
+                                        <div class="chart-bar">
+                                            <div id="fiberBar" class="bar-fill" style="width: 5%;"></div>
+                                        </div>
+                                        <div id="fiberPercent" class="chart-percent">5%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="diet-notes">
+                                <h3>Additional Notes</h3>
+                                <ul id="dietNotes">
+                                    <!-- Will be populated with JavaScript -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Happy Tails</h2>
+                    <p>Caring for your pets, one record at a time.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="register-pet.html">Register Pet</a></li>
+                        <li><a href="my-pet.html">My Pet</a></li>
+                        <li><a href="medical-records.html">Medical Records</a></li>
+                        <li><a href="diet-planner.html">Diet Planner</a></li>
+                        <li><a href="symptoms-checker.html">Symptoms Checker</a></li>
+                        <li><a href="lost-found.html">Lost & Found</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@HappyTails.com</p>
+                    <p>Phone: 9878786546</p>
+                </div>
+            </div>
+          
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="diet-planner.js"></script>
+</body>
+</html>

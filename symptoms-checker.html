@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCare - Symptoms Checker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Happy Tails</h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="my-pet.html">My Pet</a></li>
+                    <li><a href="diet-planner.html">Diet Planner</a></li>
+                    <li><a href="symptoms-checker.html" class="active">Symptoms Checker</a></li>
+                    <li><a href="lost-found.html">Lost & Found</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Pet Symptoms Checker</h1>
+                <p>Analyze your pet's symptoms and get guidance</p>
+            </div>
+        </section>
+
+        <section class="symptoms-checker">
+            <div class="container">
+                <div class="disclaimer-box">
+                    <h3>Important Disclaimer</h3>
+                    <p>This tool is for informational purposes only and is not a substitute for professional veterinary advice. If your pet is experiencing severe symptoms, please contact a veterinarian immediately.</p>
+                </div>
+                
+                <div class="symptoms-content">
+                    <div class="symptoms-form-container">
+                        <h2>Describe Your Pet's Symptoms</h2>
+                        <p>Enter detailed information about what your pet is experiencing</p>
+                        
+                        <form id="symptomsForm" class="symptoms-form">
+                            <div class="form-group">
+                                <label for="petTypeSymptoms">Pet Type</label>
+                                <select id="petTypeSymptoms" name="petTypeSymptoms" required>
+                                    <option value="">Select pet type</option>
+                                    <option value="dog">Dog</option>
+                                    <option value="cat">Cat</option>
+                                    <option value="bird">Bird</option>
+                                    <option value="rabbit">Rabbit</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="petAgeSymptoms">Age (years)</label>
+                                    <input type="number" id="petAgeSymptoms" name="petAgeSymptoms" min="0" step="0.1" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="symptomsDuration">Duration of Symptoms</label>
+                                    <select id="symptomsDuration" name="symptomsDuration" required>
+                                        <option value="">Select duration</option>
+                                        <option value="hours">Hours</option>
+                                        <option value="days">Days</option>
+                                        <option value="weeks">Weeks</option>
+                                        <option value="months">Months</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="symptomsDescription">Describe the Symptoms</label>
+                                <textarea id="symptomsDescription" name="symptomsDescription" rows="5" placeholder="Describe what your pet is experiencing in detail (e.g., vomiting, lethargy, loss of appetite, etc.)" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Common Symptoms (Check all that apply)</label>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="symptomVomiting" name="symptoms[]" value="vomiting">
+                                        <label for="symptomVomiting">Vomiting</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="symptomDiarrhea" name="symptoms[]" value="diarrhea">
+                                        <label for="symptomDiarrhea">Diarrhea</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="symptomLethargy" name="symptoms[]" value="lethargy">
+                                        <label for="symptomLethargy">Lethargy</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="symptomLossAppetite" name="symptoms[]" value="loss_appetite">
+                                        <label for="symptomLossAppetite">Loss of Appetite</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="symptomCoughing" name="symptoms[]" value="coughing">
+                                        <label for="symptomCoughing">Coughing</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="symptomSneezing" name="symptoms[]" value="sneezing">
+                                        <label for="symptomSneezing">Sneezing</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="symptomItching" name="symptoms[]" value="itching">
+                                        <label for="symptomItching">Itching/Scratching</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="symptomLimping" name="symptoms[]" value="limping">
+                                        <label for="symptomLimping">Limping</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="locationInput">Your Location (for vet recommendations)</label>
+                                <input type="text" id="locationInput" name="locationInput" placeholder="Enter city or zip code">
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Analyze Symptoms</button>
+                                <button type="reset" class="btn btn-secondary">Reset Form</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div id="symptomsResults" class="symptoms-results" style="display: none;">
+                        <div class="results-header">
+                            <h2>Symptoms Analysis</h2>
+                            <div class="urgency-indicator">
+                                <span id="urgencyLevel" class="urgency-badge">Moderate Concern</span>
+                            </div>
+                        </div>
+                        
+                        <div class="analysis-section">
+                            <h3>Possible Causes</h3>
+                            <ul id="possibleCauses" class="causes-list">
+                                <!-- Will be populated with JavaScript -->
+                            </ul>
+                        </div>
+                        
+                        <div class="analysis-section">
+                            <h3>Recommended Next Steps</h3>
+                            <div id="recommendedSteps" class="steps-list">
+                                <!-- Will be populated with JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div class="analysis-section">
+                            <h3>Home Care Tips</h3>
+                            <ul id="homeCare" class="home-care-list">
+                                <!-- Will be populated with JavaScript -->
+                            </ul>
+                        </div>
+                        
+                        <div class="analysis-section">
+                            <h3>When to See a Vet</h3>
+                            <div id="whenToSeeVet" class="vet-advice">
+                                <!-- Will be populated with JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div id="nearbyVets" class="nearby-vets">
+                            <h3>Nearby Veterinary Clinics</h3>
+                            <div id="vetsLoading" class="loading-indicator">
+                                <p>Searching for veterinary clinics near you...</p>
+                            </div>
+                            <div id="vetsList" class="vets-list">
+                                <!-- Will be populated with JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div class="disclaimer-note">
+                            <p><strong>Note:</strong> This analysis is based on the symptoms you've described and is not a definitive diagnosis. Always consult with a veterinarian for proper medical advice.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Happy Tails</h2>
+                    <p>Caring for your pets, one record at a time.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="register-pet.html">Register Pet</a></li>
+                        <li><a href="my-pet.html">My Pet</a></li>
+                        <li><a href="medical-records.html">Medical Records</a></li>
+                        <li><a href="diet-planner.html">Diet Planner</a></li>
+                        <li><a href="symptoms-checker.html">Symptoms Checker</a></li>
+                        <li><a href="lost-found.html">Lost & Found</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@HappyTails.com</p>
+                    <p>Phone: 9878786546</p>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="symptoms-checker.js"></script>
+</body>
+</html>

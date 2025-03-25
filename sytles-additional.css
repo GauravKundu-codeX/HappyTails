@@ -1,0 +1,477 @@
+/* Additional styles for new pages */
+
+/* Diet Planner Page */
+.diet-planner {
+  padding: 3rem 0;
+}
+
+.diet-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.diet-form-container, .diet-results {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+}
+
+.diet-form {
+  margin-top: 1.5rem;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.pet-summary {
+  background-color: var(--secondary-color);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
+}
+
+.summary-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-label {
+  font-weight: 500;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.summary-value {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.diet-recommendations {
+  margin-top: 2rem;
+}
+
+.calorie-needs {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.recommendations-list, .feeding-schedule {
+  background-color: var(--secondary-color);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
+}
+
+.nutrition-facts {
+  margin-bottom: 2rem;
+}
+
+.nutrition-chart {
+  margin-top: 1rem;
+}
+
+.chart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.chart-label {
+  width: 80px;
+  font-weight: 500;
+}
+
+.chart-bar {
+  flex: 1;
+  height: 20px;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 1rem;
+}
+
+.bar-fill {
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+}
+
+.chart-percent {
+  width: 50px;
+  text-align: right;
+  font-weight: 500;
+}
+
+.diet-notes {
+  background-color: var(--secondary-color);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+}
+
+.diet-notes ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.diet-notes li {
+  margin-bottom: 0.5rem;
+}
+
+/* Symptoms Checker Page */
+.symptoms-checker {
+  padding: 3rem 0;
+}
+
+.disclaimer-box {
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  color: #856404;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
+}
+
+.symptoms-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.symptoms-form-container, .symptoms-results {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+}
+
+.checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-item input[type="checkbox"] {
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+.checkbox-item label {
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+.urgency-indicator {
+  display: flex;
+  align-items: center;
+}
+
+.urgency-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.urgency-badge.low {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.urgency-badge.moderate {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.urgency-badge.high {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.analysis-section {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.analysis-section:last-child {
+  border-bottom: none;
+}
+
+.causes-list, .home-care-list {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.causes-list li, .home-care-list li {
+  margin-bottom: 0.5rem;
+}
+
+.steps-list, .vet-advice {
+  background-color: var(--secondary-color);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+}
+
+.nearby-vets {
+  margin-top: 2rem;
+}
+
+.loading-indicator {
+  text-align: center;
+  padding: 1rem;
+  color: var(--text-light);
+}
+
+.vets-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.vet-card {
+  background-color: var(--secondary-color);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+}
+
+.vet-name {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.vet-address, .vet-phone {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.vet-distance {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.disclaimer-note {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: var(--secondary-color);
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+}
+
+/* Lost & Found Pets Page */
+.lost-found-section {
+  padding: 3rem 0;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.filter-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-controls select {
+  width: auto;
+}
+
+.pets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.pet-card {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.pet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.pet-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.pet-image-placeholder {
+  width: 100%;
+  height: 200px;
+  background-color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+}
+
+.pet-details {
+  padding: 1.5rem;
+}
+
+.pet-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.pet-info {
+  margin-bottom: 1rem;
+}
+
+.pet-info p {
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.pet-status {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.pet-status.lost {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.pet-status.found {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.pet-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.report-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.report-option {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.report-option:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.report-option h3 {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.report-option p {
+  margin-bottom: 1.5rem;
+}
+
+.report-form {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin-top: 2rem;
+}
+
+.form-hint {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: 0.3rem;
+}
+
+/* Responsive Styles for New Pages */
+@media (max-width: 768px) {
+  .diet-content, .symptoms-content {
+      grid-template-columns: 1fr;
+  }
+  
+  .summary-details {
+      grid-template-columns: 1fr 1fr;
+  }
+  
+  .checkbox-group {
+      grid-template-columns: 1fr 1fr;
+  }
+  
+  .report-options {
+      grid-template-columns: 1fr;
+  }
+  
+  .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+  }
+  
+  .pets-grid {
+      grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .summary-details, .checkbox-group {
+      grid-template-columns: 1fr;
+  }
+  
+  .chart-item {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+  
+  .chart-bar {
+      width: 100%;
+      margin: 0.5rem 0;
+  }
+  
+  .chart-percent {
+      width: auto;
+      text-align: left;
+  }
+}

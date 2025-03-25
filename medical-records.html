@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCare - Medical Records</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Happy Tails</h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="register-pet.html">Register Pet</a></li>
+                    <li><a href="my-pet.html">My Pet</a></li>
+                    <li><a href="medical-records.html" class="active">Medical Records</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Medical Records</h1>
+                <p>Track your pet's health history and upcoming appointments</p>
+            </div>
+        </section>
+
+        <section class="medical-records">
+            <div class="container">
+                <div id="noPetMedicalMessage" class="no-pet-message">
+                    <p>You haven't registered any pets yet.</p>
+                    <a href="register-pet.html" class="btn btn-primary">Register a Pet</a>
+                </div>
+                
+                <div id="medicalRecordsContent" style="display: none;">
+                    <div class="pet-selector">
+                        <h3>Select Pet:</h3>
+                        <select id="petSelector">
+                            <option value="">Select a pet</option>
+                        </select>
+                    </div>
+                    
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="vaccinations">Vaccinations</button>
+                        <button class="tab-btn" data-tab="appointments">Appointments</button>
+                        <button class="tab-btn" data-tab="vet-visits">Vet Visits</button>
+                    </div>
+                    
+                    <div id="vaccinations" class="tab-content active">
+                        <div class="section-header">
+                            <h2>Vaccination Records</h2>
+                            <button id="addVaccinationBtn" class="btn btn-primary">Add Vaccination</button>
+                        </div>
+                        
+                        <div id="vaccinationsList" class="records-list">
+                            <div class="empty-state">
+                                <p>No vaccination records yet.</p>
+                            </div>
+                        </div>
+                        
+                        <div id="vaccinationForm" class="record-form" style="display: none;">
+                            <h3>Add Vaccination</h3>
+                            <form id="addVaccinationForm">
+                                <div class="form-group">
+                                    <label for="vaccineName">Vaccine Name</label>
+                                    <input type="text" id="vaccineName" name="vaccineName" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="vaccineDate">Date Administered</label>
+                                    <input type="date" id="vaccineDate" name="vaccineDate" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="vaccineNextDate">Next Due Date</label>
+                                    <input type="date" id="vaccineNextDate" name="vaccineNextDate">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="vaccineNotes">Notes</label>
+                                    <textarea id="vaccineNotes" name="vaccineNotes" rows="3"></textarea>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">Save Vaccination</button>
+                                    <button type="button" id="cancelVaccinationBtn" class="btn btn-secondary">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div id="appointments" class="tab-content">
+                        <div class="section-header">
+                            <h2>Upcoming Appointments</h2>
+                            <button id="addAppointmentBtn" class="btn btn-primary">Schedule Appointment</button>
+                        </div>
+                        
+                        <div id="appointmentsList" class="records-list">
+                            <div class="empty-state">
+                                <p>No upcoming appointments.</p>
+                            </div>
+                        </div>
+                        
+                        <div id="appointmentForm" class="record-form" style="display: none;">
+                            <h3>Schedule Appointment</h3>
+                            <form id="addAppointmentForm">
+                                <div class="form-group">
+                                    <label for="appointmentType">Appointment Type</label>
+                                    <select id="appointmentType" name="appointmentType" required>
+                                        <option value="">Select type</option>
+                                        <option value="checkup">Regular Check-up</option>
+                                        <option value="vaccination">Vaccination</option>
+                                        <option value="grooming">Grooming</option>
+                                        <option value="dental">Dental Care</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="appointmentDate">Date</label>
+                                    <input type="date" id="appointmentDate" name="appointmentDate" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="appointmentTime">Time</label>
+                                    <input type="time" id="appointmentTime" name="appointmentTime" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="vetName">Veterinarian</label>
+                                    <input type="text" id="vetName" name="vetName">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="appointmentNotes">Notes</label>
+                                    <textarea id="appointmentNotes" name="appointmentNotes" rows="3"></textarea>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">Save Appointment</button>
+                                    <button type="button" id="cancelAppointmentBtn" class="btn btn-secondary">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div id="vet-visits" class="tab-content">
+                        <div class="section-header">
+                            <h2>Vet Visit History</h2>
+                            <button id="addVisitBtn" class="btn btn-primary">Add Visit</button>
+                        </div>
+                        
+                        <div id="visitsList" class="records-list">
+                            <div class="empty-state">
+                                <p>No vet visit records yet.</p>
+                            </div>
+                        </div>
+                        
+                        <div id="visitForm" class="record-form" style="display: none;">
+                            <h3>Add Vet Visit</h3>
+                            <form id="addVisitForm">
+                                <div class="form-group">
+                                    <label for="visitDate">Visit Date</label>
+                                    <input type="date" id="visitDate" name="visitDate" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="visitReason">Reason for Visit</label>
+                                    <input type="text" id="visitReason" name="visitReason" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="visitVet">Veterinarian</label>
+                                    <input type="text" id="visitVet" name="visitVet">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="visitDiagnosis">Diagnosis</label>
+                                    <textarea id="visitDiagnosis" name="visitDiagnosis" rows="3"></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="visitTreatment">Treatment</label>
+                                    <textarea id="visitTreatment" name="visitTreatment" rows="3"></textarea>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">Save Visit</button>
+                                    <button type="button" id="cancelVisitBtn" class="btn btn-secondary">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Happy Tails</h2>
+                    <p>Caring for your pets, one record at a time.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="register-pet.html">Register Pet</a></li>
+                        <li><a href="my-pet.html">My Pet</a></li>
+                        <li><a href="medical-records.html">Medical Records</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@Happy Tails.com</p>
+                    <p>Phone: 9878786546</p>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

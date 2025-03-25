@@ -1,0 +1,62 @@
+/* Add these styles to your main styles.css file */
+
+/* Import additional styles */
+@import url('styles-additional.css');
+
+/* Update navigation for new pages */
+@media (max-width: 1200px) {
+    .nav-links li {
+        margin-left: 1rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        flex-direction: column;
+        padding: 1rem 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links li {
+        margin: 0;
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: 0.8rem 2rem;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* Button sizes */
+.btn-sm {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+}
+
+/* Urgent advice styling */
+.urgent-advice {
+    color: var(--danger);
+    font-weight: 500;
+}
+
+/* Form hint styling */
+.form-hint {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: 0.3rem;
+}
